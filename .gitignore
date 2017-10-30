@@ -1,0 +1,8 @@
+.idea/
+.DS_Store
+**.prev
+*.log
+*.rpm
+.vagrant/
+Splunk.License
+*.sql
