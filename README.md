@@ -539,5 +539,5 @@ needed this time. This is is done automatically by the captain and cluster membe
     
     Note that splunk will hash the pass phrase when you restart it.
 
-11. Now that we have this configured we can deploy apps to the sh-cluster by doing the following procedure.
+11. Now that we have this configured we can deploy apps to the sh-cluster through the deployer.
 
