@@ -232,6 +232,8 @@ http://docs.splunk.com/Documentation/Splunk/6.5.1/Indexer/Basicclusterarchitectu
 
 Ok Great, now you are an expert in clustering right? ;)
 
+configure indexers as multi-site as [site1: idx1 idx2 | site2: idx3, idx4]
+
 Let's start with the master node.
 
 1. Login to the misc server again but this time set your environment for
@@ -388,7 +390,7 @@ and idx4 belong to site2.
     ```
     export SPLUNK_HOME=/opt/idx2
     $SPLUNK_HOME/bin/splunk edit cluster-config -master_uri https://192.168.3.64:8189 \
-    -mode slave -site site1 -replication_port 9200 -secret idxSymmKey`
+    -mode slave -site site1 -replication_port 9200 -secret idxSymmKey
     $SPLUNK_HOME/bin/splunk edit licenser-localslave -master_uri https://192.168.3.64:8289
     $SPLUNK_HOME/bin/splunk enable listen 9297
     $SPLUNK_HOME/bin/splunk restart
@@ -397,7 +399,7 @@ and idx4 belong to site2.
     ```
     export SPLUNK_HOME=/opt/idx3
     $SPLUNK_HOME/bin/splunk edit cluster-config -master_uri https://192.168.3.64:8189 \
-    -mode slave -site site1 -replication_port 9300 -secret idxSymmKey`
+    -mode slave -site site2 -replication_port 9300 -secret idxSymmKey
     $SPLUNK_HOME/bin/splunk edit licenser-localslave -master_uri https://192.168.3.64:8289
     $SPLUNK_HOME/bin/splunk enable listen 9397
     $SPLUNK_HOME/bin/splunk restart
@@ -406,7 +408,7 @@ and idx4 belong to site2.
     ```
     export SPLUNK_HOME=/opt/idx4
     $SPLUNK_HOME/bin/splunk edit cluster-config -master_uri https://192.168.3.64:8189 \
-    -mode slave -site site1 -replication_port 9400 -secret idxSymmKey`
+    -mode slave -site site2 -replication_port 9400 -secret idxSymmKey
     $SPLUNK_HOME/bin/splunk edit licenser-localslave -master_uri https://192.168.3.64:8289
     $SPLUNK_HOME/bin/splunk enable listen 9497
     $SPLUNK_HOME/bin/splunk restart
