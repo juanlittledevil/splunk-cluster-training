@@ -636,7 +636,7 @@ needed this time. This is is done automatically by the captain and cluster membe
     Restart Splunk
     
     ``` 
-    $SPLUNK_HOME/bin/splunk rsetart
+    $SPLUNK_HOME/bin/splunk restart
     ```
     
     Note that splunk will hash the pass phrase when you restart it.
